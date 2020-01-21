@@ -1,0 +1,12 @@
+<!-- views/pages/sange.ejs -->
+<%- include ('../partials/header') %>    
+
+    <h1><%= title %></h1>
+    <p><%= content %></p>
+    <hr>
+
+    <p><b><%= song.title %> - <%= song.artist_name %></b></p>
+
+    <pre><%= song.content %></pre>
+    <hr>
+<%- include ('../partials/footer') %>
