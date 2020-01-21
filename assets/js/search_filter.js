@@ -1,9 +1,9 @@
-function myFunction() {
+function search_filter() {
   // Declare variables
-  var input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
+  let input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('my_filter_input');
   filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
+  ul = document.getElementById("songlist");
   li = ul.getElementsByTagName('li');
 
   // Loop through all list items, and hide those who don't match the search query

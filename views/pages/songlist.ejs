@@ -13,12 +13,12 @@
     </p>
 
     <p><b>Søg i sange</b>
-        <input type="text" name="keyword" value="" id="myInput" onkeyup="myFunction()">
+        <input type="text" name="keyword" value="" id="my_filter_input" onkeyup="search_filter()">
         <button type="button">Søg</button>
     </p>
 
 
-    <ul class="list" id="myUL">
+    <ul class="list" id="songlist">
     <% songlist.forEach(function(song) { %>
         <li><a href="/details/<%= song.id %>"><%= song.title %></a> - <%= song.artist_name %></li>
     <% }); %> 
