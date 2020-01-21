@@ -4,15 +4,21 @@
     <h1><%= title %></h1>
     <p><%= content %></p>
 
-    <p>Sortering: 
+    <p>
+        Sortering: 
         <a href="/a-z/">A - Å</a> |
         <a href="/z-a/">Å - A</a> |   
         <a href="/art-a-z/">Artist A - Å</a> |   
         <a href="/art-z-a/">Artist Å - A</a> |   
     </p>
 
+    <p><b>Søg i sange</b>
+        <input type="text" name="keyword" value="" id="myInput" onkeyup="myFunction()">
+        <button type="button">Søg</button>
+    </p>
 
-    <ul class="list">
+
+    <ul class="list" id="myUL">
     <% songlist.forEach(function(song) { %>
         <li><a href="/details/<%= song.id %>"><%= song.title %></a> - <%= song.artist_name %></li>
     <% }); %> 
