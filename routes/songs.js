@@ -92,21 +92,21 @@ module.exports = (app) => {
                 } else {
                     let results = [];
                     songlist.forEach(element => {
-                        //let obj = element.includes(keyword);
-                        //results.push(obj);
+                        if(element.title.includes(keyword) || 
+                            element.artist_name.includes(keyword) || 
+                            element.content.includes(keyword)) {
+                            results.push(element)
+                        }
                     });
-                    console.log(results);
-                    res.send(req.body.keyword)
+                    //Render til EJS side
+                    res.render('pages/songlist', {
+                        title: "Sangliste",
+                        content: "Søgeresultat",
+                        songlist: results
+                    });                    
                 }
 
-                //Render til EJS side
-                /*
-                res.render('pages/songlist', {
-                    title: "Sangliste",
-                    content: "Her finder du udvalgte lister.",
-                    songlist: songlist
-                });
-                */
+
             })
     });
 
