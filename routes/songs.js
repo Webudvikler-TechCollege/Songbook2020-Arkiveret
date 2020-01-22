@@ -92,7 +92,6 @@ module.exports = (app) => {
                 } else {
                     let results = [];
                     songlist.forEach(element => {
-                        console.log(typeof(element));
                         //let obj = element.includes(keyword);
                         //results.push(obj);
                     });
