@@ -12,11 +12,23 @@
         <a href="/art-z-a/">Artist Å - A</a> |   
     </p>
 
-    <p><b>Søg i sange</b>
+    <hr>
+
+    <p><b>Filtrer sange</b>
         <input type="text" name="keyword" value="" id="my_filter_input" onkeyup="search_filter()">
         <button type="button">Søg</button>
     </p>
 
+    <hr>
+
+    <p><b>Søg i sange</b>
+        <form method="post" action="/search">
+            <input type="text" name="keyword" value="" id="key">
+            <button type="submit">Søg</button>
+        </form>
+    </p>
+
+    <hr>
 
     <ul class="list" id="songlist">
     <% songlist.forEach(function(song) { %>

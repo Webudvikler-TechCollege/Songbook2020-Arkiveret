@@ -72,6 +72,46 @@ module.exports = (app) => {
                 });
             })
     })  
+
+    //Route til søgning
+    app.post("/search", (req, res) => {
+        
+        let keyword = (req.body.keyword === undefined) ? '' : req.body.keyword;
+        console.log(keyword);
+
+        //Fetch API data
+        fetch('https://api.mediehuset.net/songbook/')
+            //Parse data as json
+            .then(response => response.json())
+            //Array data
+            .then(data => {
+                const songlist = data.song;
+
+                if(keyword === "") {
+                    res.sendStatus(418);
+                } else {
+                    let results = [];
+                    songlist.forEach(element => {
+                        console.log(typeof(element));
+                        //let obj = element.includes(keyword);
+                        //results.push(obj);
+                    });
+                    console.log(results);
+                    res.send(req.body.keyword)
+                }
+
+                //Render til EJS side
+                /*
+                res.render('pages/songlist', {
+                    title: "Sangliste",
+                    content: "Her finder du udvalgte lister.",
+                    songlist: songlist
+                });
+                */
+            })
+    });
+
+
     
     //404 meddelelse
     app.use(function(req, res, next) {
