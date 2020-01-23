@@ -1,0 +1,18 @@
+<!-- views/pages/sange.ejs -->
+<%- include ('../partials/header') %>    
+
+<form method="POST" action="/contact">
+    <fieldset>
+        <legend>Kontaktform</legend>
+        <div>
+            <label for="name">Navn:</label>
+            <input type="text" name="firstname" id="firstname" value="">
+        </div>
+        <div>
+            <button type="submit">Send</button>
+        </div>
+    
+    </fieldset>
+</form>
+
+<%- include ('../partials/footer') %>
