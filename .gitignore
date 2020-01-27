@@ -1,2 +1,8 @@
 /node_modules*
 /old_app.js
+/.firebaserc
+/database.rules.json
+/firebase.json
+/routes/songs-firebase.js
+/views/pages/firebase*
+
