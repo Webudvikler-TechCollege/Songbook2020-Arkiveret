@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = (app) => {
+    console.log(__dirname);
     //Looper config dir
     fs.readdirSync(__dirname, {
         withFileTypes: true
