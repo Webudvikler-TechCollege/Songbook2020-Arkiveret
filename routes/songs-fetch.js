@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 module.exports = (app) => {
 
     //Route til liste med sange
-    app.get("/:sort", (req, res) => {
+    app.get("/fetch/:sort", (req, res) => {
         //Fetch API data
         fetch('https://api.mediehuset.net/songbook/')
             //Parse data as json
@@ -47,7 +47,7 @@ module.exports = (app) => {
                 }
 
                 //Render til EJS side
-                res.render('pages/songlist', {
+                res.render('pages/fetch/songlist', {
                     title: "Sangliste",
                     content: "Her finder du udvalgte lister.",
                     songlist: songlist
@@ -56,7 +56,7 @@ module.exports = (app) => {
     });
 
     //Route til detalje side - skal have et parameter - eks: http://localhost:4242/details/233
-    app.get('/details/:id([0-9]*)', (req, res) => {
+    app.get('/fetch/details/:id([0-9]*)', (req, res) => {
         //Fetch API data
         fetch('https://api.mediehuset.net/songbook/')
             //Parse data as json
@@ -65,7 +65,7 @@ module.exports = (app) => {
             .then(data => {
                 const songlist = data.song;
                 const song = songlist.find(obj => obj.id == req.params.id);
-                res.render('pages/songdetails', {
+                res.render('pages/fetch/songdetails', {
                     title: "Vis sang",
                     content: "Her finder du tekst og akkorder til en sang",
                     song: song
@@ -74,7 +74,7 @@ module.exports = (app) => {
     })  
 
     //Route til søgning
-    app.post("/search", (req, res) => {
+    app.post("/fetch/search", (req, res) => {
         
         let keyword = (req.body.keyword === undefined) ? '' : req.body.keyword;
         console.log(keyword);
@@ -99,7 +99,7 @@ module.exports = (app) => {
                         }
                     });
                     //Render til EJS side
-                    res.render('pages/songlist', {
+                    res.render('pages/fetch/songlist', {
                         title: "Sangliste",
                         content: "Søgeresultat",
                         songlist: results
@@ -111,7 +111,7 @@ module.exports = (app) => {
     });
 
     //Route til sangliste ud fra artist
-    app.get('/artist/:id([0-9]*)', (req, res) => {
+    app.get('/fetch/artist/:id([0-9]*)', (req, res) => {
         //Fetch API data
         fetch('https://api.mediehuset.net/songbook/')
             //Parse data as json
@@ -126,10 +126,8 @@ module.exports = (app) => {
                     }
                 });
 
-                console.log(results);
-
                 //Render til EJS side
-                res.render('pages/songlist', {
+                res.render('pages/fetch/songlist', {
                     title: "Sangliste",
                     content: "Her finder du udvalgte lister.",
                     songlist: results

@@ -1,0 +1,37 @@
+<!-- views/pages/sange.ejs -->
+<%- include ('../../partials/header') %>    
+
+    <h1><%= title %></h1>
+    <p><%= content %></p>
+
+    <section class="container">
+
+        <section>
+            <p>
+                <form method="post" action="/search">
+                    <input type="text" name="keyword" value="" id="key" placeholder="Søg">
+                    <button type="submit">Søg</button>
+                </form>
+            </p>
+        </section>
+
+        <section>
+            <p>
+                Sortering: 
+                <a href="/fetch/a-z/">A - Å</a> |
+                <a href="/fetch/z-a/">Å - A</a> |   
+                <a href="/fetch/art-a-z/">Artist A - Å</a> |   
+                <a href="/fetch/art-z-a/">Artist Å - A</a> |   
+            </p>        
+        </section>
+
+    </section>
+
+    <ul class="list" id="songlist">
+    <% songlist.forEach(function(song) { %>
+        <li><a href="/fetch/details/<%= song.id %>"><%= song.title %></a> - 
+            <a href="/fetch/artist/<%= song.artist_id %>"><%= song.artist_name %></a></li>
+    <% }); %> 
+    </ul>
+
+<%- include ('../../partials/footer') %>

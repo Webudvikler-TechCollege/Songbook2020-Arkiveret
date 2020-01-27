@@ -9,6 +9,7 @@ const port = process.env.PORT || 4242;
 //Require config & route files
 require('./config/index')(app);
 require('./routes/index')(app);
+require('./error-handling/index')(app);
 
 //Angiver port der skal lyttes på
 app.listen(port, () => {

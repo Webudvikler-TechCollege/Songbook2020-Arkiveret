@@ -2,6 +2,11 @@ a, p, li, h1, h2 {
   font-family: Verdana;
 }
 
+a {
+  color: #00f;
+  text-decoration: none;
+}
+
 h1 {
   font-size: 1.4rem;
 }
@@ -32,7 +37,7 @@ header ul li a {
   background-color: #fff;
   display: block;
   text-decoration: none;
-  padding: 15px 20px;
+  padding: 10px 15px;
   margin-right: 15px;
 }
 
@@ -47,5 +52,13 @@ header ul li a:hover {
 
 .list a {
   text-decoration: none;
+  color: #00f;
+}
+
+.container {
+  display: -ms-inline-grid;
+  display: inline-grid;
+  -ms-grid-columns: 200px auto;
+      grid-template-columns: 200px auto;
 }
 /*# sourceMappingURL=styles.css.map */
