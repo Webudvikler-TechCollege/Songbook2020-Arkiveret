@@ -110,17 +110,30 @@ module.exports = (app) => {
             })
     });
 
+    //Route til sangliste ud fra artist
+    app.get('/artist/:id([0-9]*)', (req, res) => {
+        //Fetch API data
+        fetch('https://api.mediehuset.net/songbook/')
+            //Parse data as json
+            .then(response => response.json())
+            //Array data
+            .then(data => {
+                const songlist = data.song;
+                let results = [];
+                songlist.forEach(element => {
+                    if(element.artist_id == req.params.id) {
+                        results.push(element)
+                    }
+                });
 
-    
-    //404 meddelelse
-    app.use(function(req, res, next) {
-        title = "Kan ikke finde siden";
-        content = "Kan ikke finde siden";
-        res.status(404).send(
-            res.render('pages/404', {
-                title: title,
-                content: content
-            })   
-        );
-    });    
+                console.log(results);
+
+                //Render til EJS side
+                res.render('pages/songlist', {
+                    title: "Sangliste",
+                    content: "Her finder du udvalgte lister.",
+                    songlist: results
+                });
+            })
+    })  
 }

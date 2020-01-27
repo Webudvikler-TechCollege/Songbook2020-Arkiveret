@@ -32,7 +32,8 @@
 
     <ul class="list" id="songlist">
     <% songlist.forEach(function(song) { %>
-        <li><a href="/details/<%= song.id %>"><%= song.title %></a> - <%= song.artist_name %></li>
+        <li><a href="/details/<%= song.id %>"><%= song.title %></a> - 
+            <a href="/artist/<%= song.artist_id %>"><%= song.artist_name %></a></li>
     <% }); %> 
     </ul>
 
