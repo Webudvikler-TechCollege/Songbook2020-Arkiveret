@@ -50,7 +50,7 @@ module.exports = (app) => {
                 res.render('pages/fetch/songlist', {
                     title: "Sangliste",
                     content: "Her finder du udvalgte lister.",
-                    songlist: songlist
+                    songlist
                 });
             })
     });
